@@ -14,7 +14,6 @@ group :development, :test do
 end
 gem 'bootstrap-sass'
 gem 'devise'
-gem 'mysql2'
 gem 'therubyracer', :platform=>:ruby
 group :development do
   gem 'better_errors'
@@ -22,9 +21,11 @@ group :development do
   gem 'rails_layout'
 end
 group :development, :test do
-  gem 'thin'
+  gem 'thin'  
+  gem 'mysql2'
 end
 group :production do
   gem 'puma'
+  gem 'pg'
   gem 'rails_12factor'
 end
