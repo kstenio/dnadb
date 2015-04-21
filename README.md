@@ -1,12 +1,9 @@
 Dnadb
-================
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+The gene database!
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
-
-Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
+The application were deployed in heroku:
+https://dnadb.herokuapp.com/
 
 Problems? Issues?
 -----------
