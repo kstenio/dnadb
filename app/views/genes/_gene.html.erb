@@ -1,0 +1,13 @@
+<td>Nome do gene: <%= link_to gene.name, gene %></td>
+<td>Variância do gene: <%= link_to gene.variance, gene %></td>
+<% a = @diseases.where(gene_id: gene.id) %>
+<% if(!a.empty?) %>
+	<td>Doença Associada:
+	  <% for item in a %>	    
+			<td>Nome: <%= item.name%></td>	
+			<td>Estado: <%= item.state%></td>	
+			<td>Quantidade: <%= item.quantity%></td>
+	</td>
+	  <% end %>	
+<% end %>	
+<td>Informações gene: <%= link_to gene.info, gene %></td>
