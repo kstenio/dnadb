@@ -2,11 +2,12 @@
 	<div class="row">
 		<h3>Genes</h3>
 		<div class="aa">
-		  <form class="navbar-search pull-right">
- 					<input type="text" class="search-query" placeholder="Search">
- 			</form>
  			<br>
-	  <hr>
+ 			<br>
+ 			<div id="search">
+		    <%= render :partial => 'genes/search' %>
+		  </div>
+ 			<br>
 			<table class="table">
 				<thead> 
 					<th class="column1"> Nome
@@ -16,33 +17,7 @@
       	</thead>
 				<tbody>
 					<% @genes.each do |gene| %>
-								<tr>
-									<td><%= gene.name %></td>
-									<td><%= gene.variance %></td>
-									<td><%= gene.info %></td>
-									<td>
-										<% a = @diseases.where(gene_id: gene.id) %>
-										<% if(!a.empty?) %>
-										<table style="width:100%">
-												<thead>
-													<th>nome</th>
-													<th>estado</th>
-													<th>quantidade</th>
-												</thead>
-												<tbody>
-													<% for item in a %>   
-													<tr>  
-														<td><%= item.name %></td>											
-														<td><%= item.state %></td> 
-														<td><%= item.quantity %></td>
-													<% end %>
-													</tr>
-												</tbody>
-										</table>
-										<% end %>
-
-								</td>
-							</tr>
+						<%= render gene %>
 					<% end %>
 				</tbody>
 			</table>

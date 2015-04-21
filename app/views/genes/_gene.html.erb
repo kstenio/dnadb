@@ -1,0 +1,28 @@
+<tr>
+	<td><%= gene.name %></td>
+	<td><%= gene.variance %></td>
+	<td><%= gene.info %></td>
+	<td>
+		<% a = @diseases.where(gene_id: gene.id) %>
+		<% if(!a.empty?) %>
+		<table style="width:100%">
+				<thead>
+					<th>nome</th>
+					<th>estado</th>
+					<th>quantidade</th>
+				</thead>
+				<tbody>
+					<% for item in a %>   
+					<tr>  
+						<td><%= item.name %></td>											
+						<td><%= item.state %></td> 
+						<td><%= item.quantity %></td>
+					<% end %>
+					</tr>
+				</tbody>
+		</table>
+		<% end %>
+
+</td>
+</tr>
+					
