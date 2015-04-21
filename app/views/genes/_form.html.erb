@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+  <%= form_for @genes, url: {action: "create"} do |g| %>
+    <% if @genes.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@genes.errors.count, "error") %> prohibited this@genes from being saved:</h2>
+        <ul>
+        <% @genes.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= g.label :name %><br>
+      <%= g.text_field :name %>
+    </div>
+    <div class="field">
+      <%= g.label :variance %><br>
+      <%= g.text_field :variance %>
+    </div>
+    <div class="field">
+      <%= g.label :info %><br>
+      <%= g.text_field :info %>
+    </div>
+    <div class="actions">
+      <%= g.submit %>
+    </div>
+  <% end %>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+	<%= @gene.name %>
+</p>
+
+<p>
+  <strong>Variância:</strong>
+  <%= @gene.variance %>
+</p>
+
+<p>
+  <strong>Informações:</strong>
+  <%= @gene.info %>
+</p>
+
+<%= button_to 'Back', genes_path, :method => 'get' %>

@@ -1,0 +1,33 @@
+<h2>Novo Gene</h2>
+<br>
+<div class="container">
+
+  <div class="row">
+  <%= form_for Gene.new do |g| %>
+
+    <div class="field">
+      <%= g.label :name %><br>
+      <%= g.text_field :name %>
+    </div>
+    <div class="field">
+      <%= g.label :variance %><br>
+      <%= g.text_field :variance %>
+    </div>
+    <div class="field">
+      <%= g.label :info %><br>
+      <%= g.text_field :info %>
+    </div>
+    <div class="actions">
+      <%= g.submit %>
+    </div>
+    <br><br>
+    
+  <% end %>
+  </div>
+
+</div>
+<%= button_to 'Back', genes_path, :method => 'get' %>
+
+
+
+
