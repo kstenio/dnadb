@@ -3,7 +3,6 @@ class DiseasesController < ApplicationController
 	before_action :set_disease, only: [:show, :edit, :update, :destroy]
 
 	def edit
-		@disease = Disease.all
 	end
 
 	def show
@@ -20,7 +19,7 @@ class DiseasesController < ApplicationController
     	else
     		@disease.gene_id = :gene_id;
     	end
-    	 respond_to do |format|
+    	 respond_to do |format| 
 		    if @disease.save
 		        format.html { redirect_to @disease, notice: 'disease foi criado com sucesso.' }
 		        format.json { render :show, status: :created, location: @disease }
@@ -29,6 +28,18 @@ class DiseasesController < ApplicationController
 		        format.json { render json: @disease.errors, status: :unprocessable_entity }
 		    end
 	    end
+	end
+
+	def update
+		respond_to do |format|
+			if @disease.update(disease_params)
+				format.html { redirect_to @disease, notice: 'disease was successfully updated.' }
+				format.json { render :show, status: :ok, location: @disease }
+			else
+				format.html { render :edit }
+				format.json { render json: @disease.errors, status: :unprocessable_entity }
+			end
+		end
 	end
 
 	def destroy

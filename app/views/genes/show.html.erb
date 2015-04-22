@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"></p>
 <h4>Gene</h4>
 <p>
   <strong>Nome:</strong>
@@ -36,9 +36,9 @@
 		</table>
 	</div>
 <% end %>
-
-<%= link_to "Criar Doença", controller: "diseases", action: "new" , gene_id: @gene.id %>
 </div>
-<p><%= button_to "Delete", @gene, :method => :delete %></p>
-<br>
+<br><br>
+<%= link_to "Delete", @gene, :method => :delete %> |
+<%= link_to "Criar Doença", controller: "diseases", action: "new" , gene_id: @gene.id %>
+<hr>
 <%= button_to 'Back', genes_path, :method => 'get' %>

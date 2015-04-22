@@ -1,6 +1,6 @@
 <p id="notice"></p>
 <h4>Doença</h4>
-
+<br>
 <p>
   <strong>Nome:</strong>
 	<%= @disease.name %>
@@ -24,6 +24,9 @@
 </p>
 	
 
-<p><%= button_to "Delete", @disease, :method => :delete %></p>
-<br>
+<%= link_to 'Edit', edit_disease_path(@disease) %> |     
+<%= link_to "Delete", @disease, :method => :delete %>
+<hr>
+<p>
 <%= button_to 'Back', genes_path, :method => 'get' %>
+</p>

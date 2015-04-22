@@ -16,7 +16,7 @@
 					<tr>  
 						<td><%= item.name %></td>											
 						<td><%= item.state %></td> 
-						<td><%= item.quantity %></td>
+						<td><%= link_to item.name, item %></td>
 					<% end %>
 					</tr>
 				</tbody>
