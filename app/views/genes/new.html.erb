@@ -5,15 +5,15 @@
   <div class="row">
   <%= form_for Gene.new do |g| %>
 
-    <div class="field">
+    <div class="form-group">
       <%= g.label :name %><br>
-      <%= g.text_field :name %>
+      <%= g.text_field :name , :autofocus => true %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= g.label :variance %><br>
       <%= g.text_field :variance %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= g.label :info %><br>
       <%= g.text_field :info %>
     </div>

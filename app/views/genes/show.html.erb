@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h4>Gene</h4>
 <p>
   <strong>Nome:</strong>
 	<%= @gene.name %>
@@ -15,4 +15,30 @@
   <%= @gene.info %>
 </p>
 
+<% if !@diseases.blank? %>
+	<div class="container">
+		<strong>Doenças associadas:</strong>
+		<table style="width:30%">
+			<thead>
+				<th>Nome</th>
+				<th>Estado</th>
+				<th>Quantidade</th>
+			</thead>
+			<tbody>
+				<% for item in @diseases %>
+				<tr>  
+					<td><%= item.name %></td>											
+					<td><%= item.state %></td> 
+					<td><%= item.quantity %></td>
+				<% end %>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<% end %>
+
+<%= link_to "Criar Doença", controller: "diseases", action: "new" %>
+</div>
+<p><%= button_to "Delete", @gene, :method => :delete %></p>
+<br>
 <%= button_to 'Back', genes_path, :method => 'get' %>

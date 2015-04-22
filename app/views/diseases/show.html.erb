@@ -1,0 +1,22 @@
+<p id="notice"></p>
+<h4>Doença</h4>
+
+<p>
+  <strong>Nome:</strong>
+	<%= @disease.name %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @disease.state %>
+</p>
+
+<p>
+  <strong>Qauntidade:</strong>
+  <%= @disease.quantity %>
+</p>
+	
+
+<p><%= button_to "Delete", @disease, :method => :delete %></p>
+<br>
+<%= button_to 'Back', genes_path, :method => 'get' %>
