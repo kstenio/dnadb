@@ -1,6 +1,7 @@
 class GenesController < ApplicationController
 	before_action :set_gene, only: [:show, :edit, :update, :destroy]
 	before_action :set_disease, only: [:show]
+	before_action :is_user, only: [:new, :edit, :update, :destroy, :create, :show]
 
 	def index
 		if params[:search]
@@ -17,6 +18,7 @@ class GenesController < ApplicationController
 
 	def new
 		@gene = Gene.new
+		
 	end
 
 	def edit
@@ -28,7 +30,7 @@ class GenesController < ApplicationController
 
 	    respond_to do |format|
 		    if @gene.save
-		        format.html { redirect_to @gene, notice: 'gene foi criado com sucesso.' }
+		        format.html { redirect_to @gene, notice: 'Gene foi criado com sucesso.' }
 		        format.json { render :show, status: :created, location: @gene }
 		    else
 		        format.html { render :new }
@@ -40,7 +42,7 @@ class GenesController < ApplicationController
 	def update
 	    respond_to do |format|
 	      if @gene.update(gene_params)
-	        format.html { redirect_to @gene, notice: 'gene was successfully updated.' }
+	        format.html { redirect_to @gene, notice: 'Gene was successfully updated.' }
 	        format.json { render :show, status: :ok, location: @gene }
 	      else
 	        format.html { render :edit }
@@ -52,7 +54,7 @@ class GenesController < ApplicationController
 	def destroy
 	    @gene.destroy
 	    respond_to do |format|
-	      format.html { redirect_to genes_url, notice: 'gene was successfully destroyed.' }
+	      format.html { redirect_to genes_url, notice: 'Gene was successfully destroyed.' }
 	      format.json { head :no_content }
 	    end
 	end
@@ -69,6 +71,12 @@ private
 
    def gene_params
       params.require(:gene).permit(:name, :variance, :info)
+   end
+
+   def is_user
+		unless user_signed_in?
+	      	redirect_to genes_path, :alert => "Access denied. Please sign in."
+	    end   
    end
 
 end

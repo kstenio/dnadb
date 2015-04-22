@@ -1,6 +1,7 @@
 class DiseasesController < ApplicationController
 
 	before_action :set_disease, only: [:show, :edit, :update, :destroy]
+	before_action :is_user, only: [:new, :edit, :update, :destroy, :create, :show]
 
 	def edit
 	end
@@ -21,7 +22,7 @@ class DiseasesController < ApplicationController
     	end
     	 respond_to do |format| 
 		    if @disease.save
-		        format.html { redirect_to @disease, notice: 'disease foi criado com sucesso.' }
+		        format.html { redirect_to @disease, notice: 'Disease foi criado com sucesso.' }
 		        format.json { render :show, status: :created, location: @disease }
 		    else
 		        format.html { render :new }
@@ -33,7 +34,7 @@ class DiseasesController < ApplicationController
 	def update
 		respond_to do |format|
 			if @disease.update(disease_params)
-				format.html { redirect_to @disease, notice: 'disease was successfully updated.' }
+				format.html { redirect_to @disease, notice: 'Disease was successfully updated.' }
 				format.json { render :show, status: :ok, location: @disease }
 			else
 				format.html { render :edit }
@@ -58,4 +59,9 @@ class DiseasesController < ApplicationController
       @disease = Disease.find(params[:id])
     end
 
+    def is_user
+		unless user_signed_in?
+	      	redirect_to genes_path, :alert => "Access denied.  Please sign in."
+	    end   
+   end
 end
