@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 20150420235740) do
   create_table "diseases", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.string   "state",      limit: 255
-    t.decimal  "quantity",               precision: 10
+    t.integer  "quantity",   limit: 4
     t.integer  "gene_id",    limit: 4
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "diseases", ["gene_id"], name: "index_diseases_on_gene_id", using: :btree

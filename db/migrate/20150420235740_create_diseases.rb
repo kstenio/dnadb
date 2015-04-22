@@ -3,7 +3,7 @@ class CreateDiseases < ActiveRecord::Migration
     create_table :diseases do |t|
       t.string :name
       t.string :state
-      t.decimal :quantity
+      t.integer :quantity
       t.references :gene, index: true
 
       t.timestamps null: false

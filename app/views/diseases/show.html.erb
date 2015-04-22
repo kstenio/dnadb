@@ -12,8 +12,15 @@
 </p>
 
 <p>
-  <strong>Qauntidade:</strong>
+  <strong>Quantidade:</strong>
   <%= @disease.quantity %>
+</p>
+
+<p>
+  <strong>Gene correspondente:</strong>
+  <%= unless !@disease.gene
+  	@disease.gene.name
+  end %>
 </p>
 	
 

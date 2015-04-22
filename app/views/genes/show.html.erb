@@ -37,7 +37,7 @@
 	</div>
 <% end %>
 
-<%= link_to "Criar Doença", controller: "diseases", action: "new" %>
+<%= link_to "Criar Doença", controller: "diseases", action: "new" , gene_id: @gene.id %>
 </div>
 <p><%= button_to "Delete", @gene, :method => :delete %></p>
 <br>

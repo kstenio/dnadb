@@ -15,6 +15,11 @@ class DiseasesController < ApplicationController
 
 	def create
     	@disease = Disease.new disease_params
+    	if(params[:gene_id])
+    		@disease.gene_id = params[:gene_id]
+    	else
+    		@disease.gene_id = :gene_id;
+    	end
     	 respond_to do |format|
 		    if @disease.save
 		        format.html { redirect_to @disease, notice: 'disease foi criado com sucesso.' }
@@ -35,7 +40,7 @@ class DiseasesController < ApplicationController
 
 
    def disease_params
-      params.require(:disease).permit(:name, :state, :variance, :gene_id)
+      params.require(:disease).permit(:name, :quantity ,:state, :gene_id)
    end
 
    def set_disease

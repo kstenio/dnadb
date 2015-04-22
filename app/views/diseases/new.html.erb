@@ -3,7 +3,6 @@
 <div class="container">
 	<div class="row">
 		<%= form_for Disease.new do |d| %>
-
 		<div class="form-group">
 			<%= d.label :nome %><br>
 			<%= d.text_field :name , :autofocus => true %>
@@ -14,10 +13,10 @@
 		</div>
 		<div class="form-group">
 			<%= d.label :quantidade %><br>
-			<%= d.number_field :quantity, :step => '5' %>
+			<%= d.number_field :quantity %>
 		</div>
 		<div class="form-group">
-			<%= d.submit %>
+			<%= d.button :submit , name: "gene_id" , value:params[:gene_id]%>
 		</div>
 		<br><br>
 		<% end %>
